@@ -5,9 +5,7 @@ import numpy as np
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 
-# ----------------------------
-# 1. PAGE CONFIGURATION
-# ----------------------------
+# Page configuration
 
 st.set_page_config(
     page_title="Personality Lab",
@@ -18,16 +16,14 @@ st.set_page_config(
 st.title("🧠 The Personality Lab")
 st.write("Discover which personality group you belong to!")
 
-# ----------------------------
-# 2. CREATE SAMPLE DATA
-# ----------------------------
+# 2. Creating sample data
 
 @st.cache_resource
 def train_model():
 
     np.random.seed(42)
 
-    # 21 4 Simulated behavioural groups
+    # 4 Simulated behavioural groups
     profiles = np.array([
         [4.5, 2.0, 4.5, 3.5],  # Adventurous
         [2.0, 4.5, 3.0, 3.5],  # Planners
@@ -66,8 +62,7 @@ def train_model():
 
     model.fit(X)
 
-    # Give clusters readable names by comparing
-    # their centres with our simulated profiles.
+    # Give clusters readable names by comparing their centres with our simulated profiles.
     centres = scaler.inverse_transform(
         model.cluster_centers_
     )
@@ -104,9 +99,7 @@ def train_model():
 
 scaler, model, cluster_names, cluster_descriptions = train_model()
 
-# ----------------------------
-# 3. QUESTIONNAIRE
-# ----------------------------
+# Questions
 
 questions = [
     {
@@ -199,9 +192,7 @@ questions = [
     }
 ]
 
-# ----------------------------
-# 4. COLLECT ANSWERS
-# ----------------------------
+# Collecting answers
 
 st.subheader("Answer the questions!")
 
@@ -228,9 +219,7 @@ with st.form("personality_form"):
         "Discover My Personality!"
     )
 
-# ----------------------------
-# 5. ANALYSE RESPONSES
-# ----------------------------
+# Analyzing outputs
 
 if submitted:
 
@@ -247,9 +236,9 @@ if submitted:
     personality = cluster_names[prediction]
     description = cluster_descriptions[prediction]
 
-    # ------------------------
-    # 6. DISPLAY RESULTS
-    # ------------------------
+
+    # Displaying results
+
 
     st.divider()
 
