@@ -15,7 +15,6 @@ An interactive Streamlit app that demonstrates **unsupervised machine learning (
   - **Social**: enjoyment of interaction and collaboration
 - **Five profiles**: The Adventure Seekers, The Master Planners, The Curious Minds, The Social Butterflies and The Balanced Explorers
 - **Results page** with your assigned profile, a bar chart of your dimension scores, a score table and randomly picked fun facts
-- **Dark-themed UI** with custom CSS styling
 - **Retake option** that resets the quiz
 
 ## ⚙️ How It Works
